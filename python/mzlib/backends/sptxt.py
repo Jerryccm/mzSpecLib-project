@@ -96,6 +96,7 @@ immonium_modification_map = {
 
 # TODO: ppm is unsigned, add mass calculation to determine true mass accuracy
 
+#test change
 annotation_pattern = re.compile(r"""^
 (?:(?:(?P<series>[abyxczp]\.?)(?P<ordinal>\d?\d?[i]?[+-]?\d?\d?\^?\d?[i]?))|
    (:?Int/(?P<series_internal>[ARNDCEQGHKMFPSTWYVILJarndceqghkmfpstwyvilj]+))|
