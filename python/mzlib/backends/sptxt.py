@@ -29,6 +29,7 @@ analyte_terms = {
         "Protein": "MS:1000885|protein accession",
         "Mods": "MS:1001471|peptide modification details",
         "Naa": "MS:1003043|number of residues",
+        "NAA": "MS:1003043|number of residues",
     },
     "Pep": {
         "Tryptic": [["MS:1003048|number of enzymatic termini", 2], ["MS:1001045|cleavage agent name", "MS:1001251|Trypsin"]],
@@ -44,17 +45,22 @@ analyte_terms = {
         },
     "Protein": "MS:1000885|protein accession",
     "Mods": "MS:1001471|peptide modification details",
+    "NAA": "MS:1003043|number of residues",
     "Naa": "MS:1003043|number of residues",
     "PrecursorMonoisoMZ": "MS:1003053|theoretical monoisotopic m/z",
     "Mz_exact": "MS:1003053|theoretical monoisotopic m/z",
     "Mz_av": "MS:1003054|theoretical average m/z",
+    "NTT": "MS:1003048|number of enzymatic termini",
 
 }
 
+NIST_ignore_terms = {"DUScorr", "Dot_cons", "Dotbest", "Dotfull", "Dottheory", "Flags",
+                     "Max2med_orig", "Missing", "Parent_med", "Pep", "Pfin", "Pfract", "Probcorr", "Pseq", "Tfratio"}
 
 other_terms = {
     "Charge": "MS:1000041|charge state",
     "Parent": "MS:1000744|selected ion m/z",
+    "PrecursorMZ": "MS:1000744|selected ion m/z",
     "ObservedPrecursorMZ": "MS:1000744|selected ion m/z",
     "Single": ["MS:1003065|spectrum aggregation type", "MS:1003066|singleton spectrum"],
     "Consensus": ["MS:1003065|spectrum aggregation type", "MS:1003067|consensus spectrum"],
@@ -73,6 +79,13 @@ other_terms = {
             "Unassign_all": "MS:1003079|total unassigned intensity fraction",
             "BasePeak": "MS:1000505|base peak intensity",
             "Num peaks": "MS:1003059|number of peaks",
+            #Newly added for sptxt
+            "LibID": "MS:9000001|Index",
+            "AvePrecursorMz": "MS:1003054|theoretical average m/z",
+            # "NAA": "MS:1003043|number of residues", should be in analyte
+            "NMC": "MS:1003044|number of missed cleavages",
+            # "NTT": "MS:1003048|number of enzymatic termini",
+            "Prob": "MS:1002357|PSM-level probability"
 }
 
 species_map = {
@@ -369,9 +382,13 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                 #### Adds the key-value pair to the dictionary
                 attributes[key] = value
 
+                if key == "Status":
+                    attributes.pop(key)
+
                 #### If the key is "Num peaks" then we're done with the header and peak list follows
                 if key == "NumPeaks":
                     in_header = False
+                    attributes.pop(key)
 
                 #### The "Comment" key requires special parsing
                 if key == "Comment":
@@ -412,6 +429,13 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                 interpretations = interpretations.strip('"')
                 #### Add to the peak list
                 peak_list.append([float(mz), float(intensity), interpretations, aggregation])
+
+        # Remove NIST ignore terms
+        for index, value in enumerate(NIST_ignore_terms):
+            # print(value)
+            if value in attributes:
+                # print("removed" + value)
+                attributes.pop(value)
 
         #### Now convert the format attributes to standard ones
         spectrum = self._make_spectrum(peak_list, attributes)
