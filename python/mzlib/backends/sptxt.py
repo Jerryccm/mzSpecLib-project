@@ -358,6 +358,8 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
         for line in buffer:
             # jerry play
             print(line)
+            if line.count("###") > 0:
+                continue
 
             #### If in the the header portion of the entry
             if in_header:
