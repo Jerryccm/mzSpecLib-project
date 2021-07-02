@@ -619,8 +619,8 @@ class AnnotationStringParser(object):
 
     def _dispatch_peptide_fragment(self, data, adducts, charge, isotope, neutral_losses, analyte_reference, mass_error, confidence, **kwargs):
         return PeptideFragmentIonAnnotation(
-            # data['series'], int(data['ordinal']),
-            data['series'], data['ordinal'],
+            data['series'], int(data['ordinal']),
+            # data['series'], data['ordinal'],
             neutral_losses, isotope, adducts, charge, analyte_reference,
             mass_error, confidence)
 
