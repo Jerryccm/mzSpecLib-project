@@ -608,12 +608,12 @@ class AnnotationStringParser(object):
                 data,
                 neutral_losses=neutral_losses, isotope=isotope, adducts=adducts, charge=charge,
                 analyte_reference=analyte_reference, mass_error=mass_error, confidence=confidence, **kwargs)
-        elif data['formula']:
-            return self._dispatch_formula(
-                data,
-                neutral_losses=neutral_losses, isotope=isotope, adducts=adducts, charge=charge,
-                analyte_reference=analyte_reference, mass_error=mass_error, confidence=confidence, **kwargs
-            )
+        # elif data['formula']:
+        #     return self._dispatch_formula(
+        #         data,
+        #         neutral_losses=neutral_losses, isotope=isotope, adducts=adducts, charge=charge,
+        #         analyte_reference=analyte_reference, mass_error=mass_error, confidence=confidence, **kwargs
+        #     )
         else:
             raise ValueError(f"Could not infer annotation type from {annotation_string}/{data}")
 

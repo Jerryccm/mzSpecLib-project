@@ -109,13 +109,13 @@ immonium_modification_map = {
 }
 
 # TODO: ppm is unsigned, add mass calculation to determine true mass accuracy
+# (:?Int / (?P < series_internal >[ARNDCEQGHKMFPSTWYVILJarndceqghkmfpstwyvilj]+)) |
 
 #test change
 annotation_pattern = re.compile(r"""^
 ((:?
     (?:(?:(?P<series>[abyxcz]\.?)(?P<ordinal>\d+))|
-   (?P<internal_fragment_ion>m\d+:\d+)|
-   (:?Int/(?P<series_internal>[ARNDCEQGHKMFPSTWYVILJarndceqghkmfpstwyvilj]+))|
+   (?P<series_internal>[m](?P<internal_start>\d+):(?P<internal_end>\d+))|
    (?P<precursor>p)|
    (:?I(?P<immonium>[ARNDCEQGHKMFPSTWYVIL])(?:(?P<immonium_modification>CAM)|[A-Z])?)|
    (?P<reporter>r(?P<reporter_mass>\d+(?:\.\d+)))|
@@ -171,14 +171,15 @@ class SPTXTAnnotationStringParser(annotation.AnnotationStringParser):
         sequence = self._get_peptide_sequence_for_analyte(
             spectrum, analyte_reference)
         subseq = data['series_internal'].upper()
-        try:
-            start_index = sequence.index(subseq)
-        except ValueError as err:
-            raise ValueError(
-                f"Cannot locate internal subsequence {subseq} in {sequence}") from err
-        end_index = start_index + len(subseq)
-        data['internal_start'] = start_index + 1
-        data['internal_end'] = end_index
+        # start_index = sequence.index(subseq) #jerry play
+        # try:
+        #     start_index = sequence.index(subseq)
+        # except ValueError as err:
+        #     raise ValueError(
+        #         f"Cannot locate internal subsequence {subseq} in {sequence}") from err
+        # end_index = start_index + len(subseq)
+        # data['internal_start'] = start_index + 1
+        # data['internal_end'] = end_index
         return super(SPTXTAnnotationStringParser, self)._dispatch_internal_peptide_fragment(
             data, adducts, charge, isotope, neutral_losses, analyte_reference, mass_error, **kwargs)
 
@@ -360,7 +361,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
         #### Loop through each line in the buffered list
         for line in buffer:
             # jerry play
-            print(line)
+            # print(line)
 
             ### in file header section, skip for now
             if line.count("###") > 0:
@@ -403,7 +404,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                     #### Remove it from attributes
                     del attributes[key]
                     self._parse_comment(value, attributes)
-                print("key is " + key + ", value is " + value)
+                # print("key is " + key + ", value is " + value)
             #### Else in the peaks section. Parse the peaks.
             else:
                 ### Split into the expected three values
