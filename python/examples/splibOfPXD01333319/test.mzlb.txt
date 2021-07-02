@@ -1,0 +1,117 @@
+<mzSpecLib 1.0>
+<Spectrum>
+MS:1003061|spectrum name=TGAGM[147]M[147]DC[160]K[357]/3
+MS:9000001|Index=0
+MS:1000744|selected ion m/z=411.1821
+MS:1003054|theoretical average m/z=411.4751
+MS:1003044|number of missed cleavages=0
+MS:1009020|number of replicate spectra used=1
+MS:1009021|number of replicate spectra available=1
+MS:1000744|selected ion m/z=411.182
+MS:1002357|PSM-level probability=0.9637
+MS:1000002|sample name=1/_data_wulong_data_ecolihires_interact-Bert_S0944_AM_2DTPP_Ecoli_ADC56_T1T2_n1_R1_F1_ipro,1,1
+ERROR=Raw is not a defined option for Spec
+MS:1000041|charge state=3
+[1]MS:1009900|other attribute name=FullName
+[1]MS:1009902|other attribute value=R.TGAGM[147]M[147]DC[160]K[357].K/3 (HCD)
+[2]MS:1009900|other attribute name=BinaryFileOffset
+[2]MS:1009902|other attribute value=381
+[3]MS:1009900|other attribute name=CollisionEnergy
+[3]MS:1009902|other attribute value=32.0
+[4]MS:1009900|other attribute name=FracUnassigned
+[4]MS:1009902|other attribute value=0.65,3/5;0.72,16/20;0.62,49/69
+[5]MS:1009900|other attribute name=MassDiff
+[5]MS:1009902|other attribute value=-1.9636
+[6]MS:1009900|other attribute name=OrigMaxIntensity
+[6]MS:1009902|other attribute value=23000.0
+[7]MS:1009900|other attribute name=PrecursorIntensity
+[7]MS:1009902|other attribute value=110000.0
+[8]MS:1009900|other attribute name=RawSpectrum
+[8]MS:1009902|other attribute value=Bert_S0944_AM_2DTPP_Ecoli_ADC56_T1T2_n1_R1_F1.00939.00939
+[9]MS:1009900|other attribute name=RetentionTime
+[9]MS:1009902|other attribute value=675.0,675.0,675.0
+[10]MS:1009900|other attribute name=Se
+[10]MS:1009902|other attribute value=1^C1:pb=0.9637/0,fv=1.1187/0
+[11]MS:1009900|other attribute name=Spec
+[11]MS:1009902|other attribute value=Raw
+[12]MS:1009900|other attribute name=TotalIonCurrent
+[12]MS:1009902|other attribute value=310000.0
+MS:1003062|spectrum index=0
+<Analyte=1>
+MS:1000224|molecular mass=1233.5464
+MS:1001471|peptide modification details=4/4,M,Oxidation/5,M,Oxidation/7,C,Carbamidomethyl/8,K,TMT6plex
+MS:1003043|number of residues=9
+MS:1003048|number of enzymatic termini=2
+MS:1000885|protein accession=1/sp|P0A6P1|EFTS_ECOLI
+MS:1000888|unmodified peptide sequence=TGAGM[147]M[147]DC[160]K[357]
+<Peaks>
+101.0712	1818.2	?
+101.5844	333.9	?
+113.0711	2020.0	?
+116.0172	375.7	?
+118.9727	362.3	?
+123.9457	347.4	?
+124.038	375.6	b2-35/-0.001
+141.0659	3028.4	b2-18/0.0
+143.1083	346.4	?
+147.6506	349.3	?
+157.1254	431.7	?
+158.0928	2087.4	?
+159.0768	4789.4	b2/0.0
+167.0815	466.5	b6-82^3/0.011
+170.1696	398.7	?
+196.1078	419.0	?
+198.0879	417.6	?
+212.103	403.7	y3-17^3/-0.004
+224.1037	2395.3	?
+229.1298	1408.8	?
+230.1714	3435.8	?
+231.0948	633.2	?
+241.1296	1579.8	?
+260.1445	457.9	y2-17^2/0.001
+267.1456	400.1	?
+269.1257	458.5	b4-18/0.001
+286.1513	4841.4	?
+295.1403	443.7	?
+324.1661	2128.7	?
+328.1747	2377.1	y7-91^3/0.019
+330.271	355.7	y1-46/0.001
+333.4909	356.8	?
+336.6877	386.6	?
+350.1698	633.4	y8-82^3/0.007
+352.1608	2249.9	b5-82/-0.001
+358.684	2586.5	y4-82^2/0.0
+362.8501	428.4	y8-44^3/0.014
+367.6902	1800.6	y4-64^2/0.001
+369.186	535.9	?
+376.2771	5715.7	y1/0.001
+378.6838	365.6	?
+409.2057	728.7	?
+420.198	598.0	?
+429.2043	491.7	?
+437.7162	2215.7	?
+439.1921	399.6	?
+464.2299	399.6	?
+467.1896	1681.4	?
+467.8463	345.1	?
+473.239	2844.3	?
+473.3118	457.2	?
+473.7418	618.7	?
+474.7556	386.0	?
+487.7515	1837.0	?
+492.7447	867.2	?
+501.7468	10000.0	?
+502.2499	2766.6	?
+519.2808	447.1	y2-17/0.001
+536.3053	5606.1	y2/-0.001
+616.2958	1512.4	y3-35/-0.0
+632.853	404.2	?
+633.3213	475.1	y3-18/-0.001
+651.331	6135.3	y3/-0.002
+661.321	1770.1	?
+673.355	7115.1	?
+674.3583	745.8	?
+755.0195	642.3	?
+878.6243	407.0	?
+970.6716	414.8	?
+
