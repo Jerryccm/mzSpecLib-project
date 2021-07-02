@@ -112,19 +112,22 @@ immonium_modification_map = {
 
 #test change
 annotation_pattern = re.compile(r"""^
-(?:(?:(?P<series>[abyxczp]\.?)(?P<ordinal>\d?\d?[i]?[+-]?\d?\d?\^?\d?[i]?))|
+((:?
+    (?:(?:(?P<series>[abyxcz]\.?)(?P<ordinal>\d+))|
+   (?P<internal_fragment_ion>m\d+:\d+)|
    (:?Int/(?P<series_internal>[ARNDCEQGHKMFPSTWYVILJarndceqghkmfpstwyvilj]+))|
    (?P<precursor>p)|
    (:?I(?P<immonium>[ARNDCEQGHKMFPSTWYVIL])(?:(?P<immonium_modification>CAM)|[A-Z])?)|
    (?P<reporter>r(?P<reporter_mass>\d+(?:\.\d+)))|
    (?:_(?P<external_ion>[^\s,/]+))
 )
-(?P<neutral_losses>(?:[+-]\d*[A-Z][A-Za-z0-9]*)+)?
+(?P<neutral_losses>(?:[+-]\d+))?
 (?:\[M(?P<adducts>(:?[+-]\d*[A-Z][A-Za-z0-9]*)+)\])?
 (?:\^(?P<charge>[+-]?\d+))?
-(?:(?P<isotope>[+-]\d*)i)?
+(?:(?P<isotope>[+-]?\d*)i)?
 (?:@(?P<analyte_reference>[^/\s]+))?
 (?:/(?P<mass_error>[+-]?\d+(?:\.\d+))(?P<mass_error_unit>ppm)?)?
+),?)+
 """, re.X)
 
 # Meaning:
