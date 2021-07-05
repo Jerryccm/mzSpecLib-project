@@ -1,0 +1,72 @@
+<mzSpecLib 1.0>
+<Spectrum>
+MS:1003061|spectrum name=n[145]K[272]LDEHLLTR/4
+MS:9000001|Index=0
+MS:1000744|selected ion m/z=353.9671
+MS:1003054|theoretical average m/z=354.1609
+MS:1000041|charge state=4
+MS:1003044|number of missed cleavages=1
+MS:1009020|number of replicate spectra used=8
+MS:1009021|number of replicate spectra available=23
+MS:1000744|selected ion m/z=353.967
+MS:1002357|PSM-level probability=1.0
+MS:1003065|spectrum aggregation type=MS:1003067|consensus spectrum
+MS:1000041|charge state=4
+[1]MS:1009900|other attribute name=FullName
+[1]MS:1009902|other attribute value=X.n[145]K[272]LDEHLLTR.X/4 (CID)
+[2]MS:1009900|other attribute name=BinaryFileOffset
+[2]MS:1009902|other attribute value=66
+[3]MS:1009900|other attribute name=ClusterId
+[3]MS:1009902|other attribute value=2731e27e-5b7f-46bb-a3c3-d318168edccb
+[4]MS:1009900|other attribute name=DeltaMass
+[4]MS:1009902|other attribute value=-0.0
+[5]MS:1009900|other attribute name=FracUnassigned
+[5]MS:1009902|other attribute value=0.00,0/5;0.01,2/20;0.01,5/34
+[6]MS:1009900|other attribute name=MaxRatio
+[6]MS:1009902|other attribute value=1.0
+[7]MS:1009900|other attribute name=PrecursorMzRange
+[7]MS:1009902|other attribute value=0.002
+MS:1003062|spectrum index=0
+<Analyte=1>
+MS:1000224|molecular mass=1415.8682
+MS:1001471|peptide modification details=2(-1,n,iTRAQ4plex)(0,K,iTRAQ4plex)
+MS:1003043|number of residues=9
+MS:1003048|number of enzymatic termini=1
+MS:1003043|number of residues=9
+MS:1000888|unmodified peptide sequence=n[145]K[272]LDEHLLTR
+<Peaks>
+110.071	1265.2	IH/-0.0
+158.092	115.8	b3-18^4/0.485
+175.118	375.5	y1/-0.001
+176.099	104.2	y1/-0.02
+195.185	304.8	a1^2/0.026
+215.13	691.1	b3^3/-0.681
+259.139	137.6	y2-18^3/0.983
+276.166	265.1	b7-36^4/-0.006
+289.29	109.6	b5-46^3/0.114
+295.27	2099.7	a5^3/0.09
+323.187	10000.0	b3^2/-0.025
+323.713	282.4	b3^2/0.001
+373.802	124.8	a4-17^2/0.066
+387.711	328.1	b4^2/-0.023
+389.249	499.0	a1/-0.062
+417.305	24.2	b1/-0.001
+442.395	939.7	a5^2/0.129
+444.438	85.2	?
+445.74	63.2	?
+456.261	15.9	y4-46^2/-0.068
+501.314	85.5	?
+502.334	217.1	a2/-0.062
+503.336	50.8	b6-18^2/-0.464
+530.362	6.3	b2/-0.028
+547.411	3.9	b7-44^2/0.059
+630.355	26.7	?
+639.396	2.4	y5/0.002
+643.411	0.9	?
+645.415	211.8	b3/-0.002
+646.418	54.2	b3/0.001
+739.406	1.8	b4-36/0.967
+746.462	30.8	a4/-0.003
+774.456	59.9	b4/-0.004
+775.463	10.8	b4/0.003
+
