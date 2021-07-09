@@ -613,7 +613,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                 else:
                     spectrum.add_attribute("ERROR", f"Attribute {attribute} must have a value")
                     unknown_terms.append(attribute)
-            elif attribute == "Collision_energy":
+            elif attribute == "Collision_energy" or attribute =="CollisionEnergy":
                 if attributes[attribute] is not None:
                     match = re.match(
                         r"([\d\.]+)", attributes[attribute])
@@ -631,7 +631,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                     spectrum.add_attribute(
                         "ERROR", f"Attribute {attribute} must have a value")
                     unknown_terms.append(attribute)
-            elif attribute == "RT":
+            elif attribute == "RT" or attribute =="RetentionTime":
                 if attributes[attribute] is not None:
                     match = re.match(r"([\d\.]+)\s*(\D*)",
                                      attributes[attribute])
@@ -678,34 +678,34 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                         "ERROR", f"Attribute {attribute} must have a value")
                     unknown_terms.append(attribute)
 
-            #### Expand the Mz_diff attribute
-            # elif attribute == "Mz_diff":
-            #     if attributes[attribute] is not None:
-            #         match = re.match(
-            #             r"([\-\+e\d\.]+)\s*ppm", attributes[attribute], flags=re.IGNORECASE)
-            #         if match is not None:
-            #             group_identifier = spectrum.get_next_group_identifier()
-            #             spectrum.add_attribute(
-            #                 "MS:1001975|delta m/z", try_cast(match.group(1)), group_identifier)
-            #             spectrum.add_attribute(
-            #                 "UO:0000000|unit", "UO:0000169|parts per million", group_identifier)
-            #         else:
-            #             match = re.match(
-            #                 r"([\-\+e\d\.]+)\s*", attributes[attribute])
-            #             if match is not None:
-            #                 group_identifier = spectrum.get_next_group_identifier()
-            #                 spectrum.add_attribute(
-            #                     "MS:1001975|delta m/z", try_cast(match.group(1)), group_identifier)
-            #                 spectrum.add_attribute(
-            #                     "UO:0000000|unit", "MS:1000040|m/z", group_identifier)
-            #             else:
-            #                 spectrum.add_attribute(
-            #                     "ERROR", f"Unable to parse {attributes[attribute]} in {attribute}")
-            #                 unknown_terms.append(attribute)
-            #     else:
-            #         spectrum.add_attribute(
-            #             "ERROR", f"Attribute {attribute} must have a value")
-            #         unknown_terms.append(attribute)
+            ### Expand the Mz_diff attribute
+            elif attribute == "Mz_diff":
+                if attributes[attribute] is not None:
+                    match = re.match(
+                        r"([\-\+e\d\.]+)\s*ppm", attributes[attribute], flags=re.IGNORECASE)
+                    if match is not None:
+                        group_identifier = spectrum.get_next_group_identifier()
+                        spectrum.add_attribute(
+                            "MS:1001975|delta m/z", try_cast(match.group(1)), group_identifier)
+                        spectrum.add_attribute(
+                            "UO:0000000|unit", "UO:0000169|parts per million", group_identifier)
+                    else:
+                        match = re.match(
+                            r"([\-\+e\d\.]+)\s*", attributes[attribute])
+                        if match is not None:
+                            group_identifier = spectrum.get_next_group_identifier()
+                            spectrum.add_attribute(
+                                "MS:1001975|delta m/z", try_cast(match.group(1)), group_identifier)
+                            spectrum.add_attribute(
+                                "UO:0000000|unit", "MS:1000040|m/z", group_identifier)
+                        else:
+                            spectrum.add_attribute(
+                                "ERROR", f"Unable to parse {attributes[attribute]} in {attribute}")
+                            unknown_terms.append(attribute)
+                else:
+                    spectrum.add_attribute(
+                        "ERROR", f"Attribute {attribute} must have a value")
+                    unknown_terms.append(attribute)
 
             #### Expand the Dev_ppm attribute
             elif attribute == "Dev_ppm":
@@ -721,7 +721,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                     unknown_terms.append(attribute)
 
             #### Expand the Fullname attribute
-            elif attribute == "Fullname":
+            elif attribute == "Fullname" or attribute =="FullName":
                 if attributes[attribute] is not None:
                     match = re.match(
                         r"([A-Z\-\*])\.([A-Z]+)\.([A-Z\-\*])/*([\d]*)", attributes[attribute])
