@@ -419,24 +419,30 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                     mz, intensity = values
                 elif len(values) == 3:
                     mz, intensity, interpretations = values
-                elif len(values) > 3:
-                    # mz, intensity, interpretations = values[0:2]
-                    # mz, intensity = values
-                    # mz, intensity, interpretations = values[0:3]
-                    mz = values[0]
-                    intensity = values[1]
-                    best_interp = re.split(r',+', values[2])
-                    interpretations = best_interp[0]
-                    print(interpretations)
+                    interpretations_list = interpretations.split(',')
+                # elif len(values) > 3:
+                #     # mz, intensity, interpretations = values[0:2]
+                #     # mz, intensity = values
+                #     # mz, intensity, interpretations = values[0:3]
+                #     mz = values[0]
+                #     intensity = values[1]
+                #     best_interp = re.split(r',+', values[2])
+                #     interpretations = best_interp[0]
+                #     print(interpretations)
                 else:
                     mz = "1"
                     intensity = "1"
                 # mz = "1"
                 # intensity = "1"
-
-                interpretations = interpretations.strip('"')
-                #### Add to the peak list
-                peak_list.append([float(mz), float(intensity), interpretations, aggregation])
+                list_input = [float(mz),float(intensity)]
+                for interpretations in interpretations_list:
+                    interpretations = interpretations.strip('"')
+                    list_input.append(interpretations)
+                list_input.append(aggregation)
+                peak_list.append(list_input)
+                # interpretations = interpretations.strip('"')
+                # #### Add to the peak list
+                # peak_list.append([float(mz), float(intensity), interpretations, aggregation])
 
         # Remove NIST ignore terms
         for index, value in enumerate(NIST_ignore_terms):
@@ -450,14 +456,17 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
         if spectrum_index is not None:
             spectrum.add_attribute("MS:1003062|spectrum index", spectrum_index)
         for i, peak in enumerate(spectrum.peak_list):
-            parsed_interpretation = parse_annotation(peak[2], spectrum=spectrum)
-            try:
-                parsed_interpretation = parse_annotation(peak[2], spectrum=spectrum)
-            except ValueError as err:
-                message = str(err)
-                raise ValueError(
-                    f"An error occurred while parsing the peak annotation for peak {i}: {message}") from err
-            peak[2] = parsed_interpretation
+            parsed_interpretation_list = []
+            for i in range(2, len(peak)):
+                parsed_interpretation = parse_annotation(peak[i], spectrum=spectrum)
+                try:
+                    parsed_interpretation = parse_annotation(peak[i], spectrum=spectrum)
+                except ValueError as err:
+                    message = str(err)
+                    raise ValueError(
+                        f"An error occurred while parsing the peak annotation for peak {i}: {message}") from err
+                # parsed_interpretation_list.append(parsed_interpretation)
+                peak[i] = parsed_interpretation
         return spectrum
 
     def _parse_comment(self, value, attributes):
