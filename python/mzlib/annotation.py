@@ -537,6 +537,36 @@ class AnnotationStringParser(object):
         isotope = int_or_sign(data.get('isotope', 0) or 0)
         neutral_losses = tokenize_signed_symbol_list(data.get("neutral_losses"))
         # FIXME: ensure that neutral loss is not a plain mass, and tokenize separate blocks
+        # ayman test
+        for i in range(len(neutral_losses)):
+            # if neutral_losses[i] == "-1":
+            #     neutral_losses[i] = "-H"
+            if neutral_losses[i] == "-17":
+                neutral_losses[i] = "-NH3"
+            if neutral_losses[i] == "-18":
+                neutral_losses[i] = "-H20"
+            # if neutral_losses[i] == "-28":
+            #     neutral_losses[i] = "-CO"
+            if neutral_losses[i] == "-34":
+                neutral_losses[i] = "-2NH3"    
+            if neutral_losses[i] == "-35":
+                neutral_losses[i] = "-H2O-NH3"
+            if neutral_losses[i] == "-36":
+                neutral_losses[i] = "-2H2O"  
+            if neutral_losses[i] == "-44":
+                neutral_losses[i] = "-CO2"  
+            if neutral_losses[i] == "-45":
+                neutral_losses[i] = "-HCONH3" 
+            if neutral_losses[i] == "-46":
+                neutral_losses[i] = "-HCOOH"  
+            if neutral_losses[i] == "-64":
+                neutral_losses[i] = "-CH3OS"
+            if neutral_losses[i] == "-80":
+                neutral_losses[i] = "-HPO3"
+            if neutral_losses[i] == "-91":
+                neutral_losses[i] = "-C2H5NOS"
+            if neutral_losses[i] == "-98":
+                neutral_losses[i] = "-H3PO4"  
         analyte_reference = data.get("analyte_reference", '1')
 
         mass_error = data.get("mass_error")
