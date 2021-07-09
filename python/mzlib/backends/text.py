@@ -387,7 +387,10 @@ class TextSpectralLibraryWriter(SpectralLibraryWriterBase):
             for i in range(3,(len(peak) - 1)):
                 extra_interpretations.append(str(peak[i]).strip('[]'))
             # print(extra_interpretations)
-            self.handle.write("\t".join(peak_parts)+','+','.join(extra_interpretations)+"\n")
+            if extra_interpretations:
+                self.handle.write("\t".join(peak_parts)+','+','.join(extra_interpretations)+"\n")
+            else:
+                self.handle.write("\t".join(peak_parts)+"\n")
         self.handle.write("\n")
 
     def close(self):

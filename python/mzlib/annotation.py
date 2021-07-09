@@ -206,12 +206,16 @@ class IonAnnotationBase(object, metaclass=SeriesLabelSubclassRegisteringMeta):
         parts.append(self._format_ion())
         if self.neutral_losses:
             parts.append(combine_formula(self.neutral_losses))
-        if self.isotope != 0:
-            sign = "+" if self.isotope > 0 else "-"
-            isotope = abs(self.isotope)
-            if isotope == 1:
-                isotope = ''
-            parts.append(f"{sign}{isotope}i")
+        # change from != 0
+        # print(self.isotope)
+        if self.isotope != None and self.isotope != 0:
+            # test ayman
+            # sign = "+" if self.isotope > 0 else "-"
+            # isotope = abs(self.isotope)
+            # if isotope == 1:
+            #     isotope = ''
+            # parts.append(f"{sign}{isotope}i")
+            parts.append(f"i")
         if self.charge != 0 and self.charge != 1:
             charge = abs(self.charge)
             parts.append(f"^{charge}")
@@ -535,6 +539,9 @@ class AnnotationStringParser(object):
         else:
             charge = int(charge)
         isotope = int_or_sign(data.get('isotope', 0) or 0)
+        # added assignment for isotope check
+        isotope = data.get('isotope')
+        # print(isotope)
         neutral_losses = tokenize_signed_symbol_list(data.get("neutral_losses"))
         # FIXME: ensure that neutral loss is not a plain mass, and tokenize separate blocks
         # ayman test
