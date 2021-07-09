@@ -57,7 +57,7 @@ class SpectralLibraryBackendBase(object, metaclass=SubclassRegisteringMetaclass)
         bool:
             Whether this is an appropriate backend for that file.
         """
-        print('guess from filename!!!')
+        # print('guess from filename!!!')
         if not isinstance(filename, (str, Path)):
             return False
         return filename.endswith(cls.file_format)
