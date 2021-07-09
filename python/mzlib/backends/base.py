@@ -77,7 +77,7 @@ class SpectralLibraryBackendBase(object, metaclass=SubclassRegisteringMetaclass)
         bool:
             Whether this is an appropriate backend for that file.
         """
-        print("guess from header!!!!")
+        # print("guess from header!!!!")
         return False
 
     @classmethod
@@ -98,7 +98,7 @@ class SpectralLibraryBackendBase(object, metaclass=SubclassRegisteringMetaclass)
         SpectralLibraryBackendBase
         """
         for key, impl in cls._file_extension_to_implementation.items():
-            print(key)
+            # print(key)
             try:
                 if impl.guess_from_filename(filename):
                     return impl(filename, index_type=index_type, **kwargs)
