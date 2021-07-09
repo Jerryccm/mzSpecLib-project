@@ -376,14 +376,18 @@ class TextSpectralLibraryWriter(SpectralLibraryWriterBase):
                         f"Attribute has wrong number of elements: {attribute}")
         self.handle.write("<Peaks>\n")
         for peak in spectrum.peak_list:
+            extra_interpretations = []
             peak_parts = [
                 str(peak[0]),
                 str(peak[1]),
                 '?' if not peak[2] else ",".join(map(str, peak[2]))
             ]
-            if peak[3]:
-                peak_parts.append(str(peak[3]))
-            self.handle.write("\t".join(peak_parts)+"\n")
+            # if peak[3]:
+            #     peak_parts.append(str(peak[3]))
+            for i in range(3,(len(peak) - 1)):
+                extra_interpretations.append(str(peak[i]).strip('[]'))
+            # print(extra_interpretations)
+            self.handle.write("\t".join(peak_parts)+','+','.join(extra_interpretations)+"\n")
         self.handle.write("\n")
 
     def close(self):
