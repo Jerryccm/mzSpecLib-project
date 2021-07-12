@@ -729,7 +729,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
             elif attribute == "Fullname" or attribute =="FullName":
                 if attributes[attribute] is not None:
                     match = re.match(
-                        r"([A-Z\-\*])\.([A-Z]+)\.([A-Z\-\*])/*([\d]*)", attributes[attribute])
+                        r"([A-Z\-\*])\.([A-Za-z0-9\[\]]+)\.([A-Z\-\*])/*([\d]*)", attributes[attribute])
                     if match is not None:
                         analyte.add_attribute(
                             "MS:1000888|unmodified peptide sequence", match.group(2))
