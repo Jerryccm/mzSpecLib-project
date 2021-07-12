@@ -17,7 +17,7 @@ logger.addHandler(logging.NullHandler())
 
 
 leader_terms = {
-    "Name": "MS:1003061|spectrum name",
+    # "Name": "MS:1003061|spectrum name",
 }
 
 # lalala testing
@@ -51,7 +51,7 @@ analyte_terms = {
     "Mz_exact": "MS:1003053|theoretical monoisotopic m/z",
     "Mz_av": "MS:1003054|theoretical average m/z",
     "NTT": "MS:1003048|number of enzymatic termini",
-
+    "AvePrecursorMz": "MS:1003054|theoretical average m/z"
 }
 
 NIST_ignore_terms = {"DUScorr", "Dot_cons", "Dotbest", "Dotfull", "Dottheory", "Flags",
@@ -80,12 +80,17 @@ other_terms = {
             "BasePeak": "MS:1000505|base peak intensity",
             "Num peaks": "MS:1003059|number of peaks",
             #Newly added for sptxt
-            "LibID": "MS:9000001|Index",
+            "LibID": "MS:1003062|spectrum index",
             "AvePrecursorMz": "MS:1003054|theoretical average m/z",
             # "NAA": "MS:1003043|number of residues", should be in analyte
             "NMC": "MS:1003044|number of missed cleavages",
             # "NTT": "MS:1003048|number of enzymatic termini",
-            "Prob": "MS:1002357|PSM-level probability"
+            "Prob": "MS:1002357|PSM-level probability",
+            "TotalIonCurrent": "MS:1000285|total ion current",
+            "PrecursorIntensity": "MS:1001141|intensity of precursor ion",
+            "DeltaMass": "MS:1001976|delta M",
+            "CollisionEnergy": "MS:1000045|collision energy",
+
 }
 
 species_map = {
@@ -746,7 +751,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
 
             ### Expand the Nrep attribute
             elif attribute == "Nrep" or attribute == "Nreps":
-                print(attributes[attribute])
+                # print(attributes[attribute])
                 if attributes[attribute] is not None:
                     match = re.match(
                         r"(\d+)/?(\d+)", str(attributes[attribute]))
