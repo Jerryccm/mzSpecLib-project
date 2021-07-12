@@ -3,6 +3,7 @@
 MS:1003061|spectrum name=n[145]K[272]LDEHLLTR/4
 MS:9000001|Index=0
 MS:1000744|selected ion m/z=353.9671
+ERROR=Unable to parse X.n[145]K[272]LDEHLLTR.X/4 (CID) in FullName at E2355
 MS:1003054|theoretical average m/z=354.1609
 MS:1000041|charge state=4
 MS:1003044|number of missed cleavages=1
@@ -35,38 +36,243 @@ MS:1003048|number of enzymatic termini=1
 MS:1003043|number of residues=9
 MS:1000888|unmodified peptide sequence=n[145]K[272]LDEHLLTR
 <Peaks>
-110.071	1265.2	IH/-0.0
-158.092	115.8	b3-18^4/0.485
-175.118	375.5	y1/-0.001
-176.099	104.2	y1/-0.02
-195.185	304.8	a1^2/0.026
-215.13	691.1	b3^3/-0.681
-259.139	137.6	y2-18^3/0.983
-276.166	265.1	b7-36^4/-0.006
-289.29	109.6	b5-46^3/0.114
-295.27	2099.7	a5^3/0.09
-323.187	10000.0	b3^2/-0.025
-323.713	282.4	b3^2/0.001
-373.802	124.8	a4-17^2/0.066
-387.711	328.1	b4^2/-0.023
-389.249	499.0	a1/-0.062
-417.305	24.2	b1/-0.001
-442.395	939.7	a5^2/0.129
-444.438	85.2	?
-445.74	63.2	?
-456.261	15.9	y4-46^2/-0.068
-501.314	85.5	?
-502.334	217.1	a2/-0.062
-503.336	50.8	b6-18^2/-0.464
-530.362	6.3	b2/-0.028
-547.411	3.9	b7-44^2/0.059
-630.355	26.7	?
-639.396	2.4	y5/0.002
-643.411	0.9	?
-645.415	211.8	b3/-0.002
-646.418	54.2	b3/0.001
-739.406	1.8	b4-36/0.967
-746.462	30.8	a4/-0.003
-774.456	59.9	b4/-0.004
-775.463	10.8	b4/0.003
+110.071	1265.2	IH/-0.0,
+158.092	115.8	y1-NH3/-0.0,y1-H20/0.984,b3-NH3^4/0.239,b3-H20^4/0.485
+175.118	375.5	y1/-0.001,
+176.099	104.2	y1/-0.02,
+195.185	304.8	y3^2/0.056,b4^4/0.815,a1^2/0.026
+215.13	691.1	b3^3/-0.681,
+259.139	137.6	b4^3/0.314,y2-NH3/-0.001,y2-H20/0.983
+276.166	265.1	y2/-0.001,b7-2NH3^4/-0.498,b7-H2O-NH3^4/-0.252,b7-2H2O^4/-0.006
+289.29	109.6	y7-H20^3/0.134,y7-NH3^3/-0.194,b5-CO2^3/-0.558,b5-HCOOH^3/0.114
+295.27	2099.7	y7^3/0.111,a5^3/0.09
+323.187	10000.0	b3^2/-0.025,
+323.713	282.4	b3^2/0.001,
+373.802	124.8	b7-H20^3/-0.095,b7-NH3^3/-0.423,a4^2/0.066
+387.711	328.1	b4^2/-0.023,
+389.249	499.0	y3/-0.002,a1/-0.062
+417.305	24.2	b1/-0.001,
+442.395	939.7	y7^2/0.16,a5^2/0.129
+444.438	85.2	?,
+445.74	63.2	?,
+456.261	15.9	b5^2/-0.002,y4-HCOOH/-0.068
+501.314	85.5	?,
+502.334	217.1	y4/-0.001,a2/-0.062
+503.336	50.8	y4/0.001,b6-NH3^2/-0.956,b6-H20^2/-0.464
+530.362	6.3	b2/-0.028,
+547.411	3.9	b7-CO2^2/0.059,
+630.355	26.7	?,
+639.396	2.4	y5/0.002,
+643.411	0.9	?,
+645.415	211.8	b3/-0.002,
+646.418	54.2	b3/0.001,
+739.406	1.8	b4-H2O-NH3/-0.017,b4-2H2O/0.967
+746.462	30.8	a4/-0.003,
+774.456	59.9	b4/-0.004,
+775.463	10.8	b4/0.003,
+
+<Spectrum>
+MS:1003061|spectrum name=KLDEHLLTR/3
+MS:9000001|Index=1
+MS:1000744|selected ion m/z=375.5523
+MS:1000041|charge state=3
+MS:1003054|theoretical average m/z=375.7758
+MS:1003044|number of missed cleavages=1
+MS:1003070|number of replicate spectra used=7
+MS:1003069|number of replicate spectra available=7
+MS:1000744|selected ion m/z=375.554
+MS:1002357|PSM-level probability=1.0
+MS:1003065|spectrum aggregation type=MS:1003067|consensus spectrum
+[1]MS:1009900|other attribute name=BinaryFileOffset
+[1]MS:1009902|other attribute value=1629
+[2]MS:1009900|other attribute name=ClusterId
+[2]MS:1009902|other attribute value=c15b07fe-93c2-4484-a5c3-6afb15cba137
+[3]MS:1009900|other attribute name=DeltaMass
+[3]MS:1009902|other attribute value=0.0
+[4]MS:1009900|other attribute name=FracUnassigned
+[4]MS:1009902|other attribute value=0.07,1/5;0.07,6/20;0.07,12/28
+[5]MS:1009900|other attribute name=MaxRatio
+[5]MS:1009902|other attribute value=1.0
+[6]MS:1009900|other attribute name=PrecursorMzRange
+[6]MS:1009902|other attribute value=0.0005
+MS:1003062|spectrum index=1
+<Analyte=1>
+MS:1000224|molecular mass=1126.6568
+MS:1000888|unmodified peptide sequence=KLDEHLLTR
+MS:1001112|n-terminal flanking residue=X
+MS:1001113|c-terminal flanking residue=X
+MS:1001471|peptide modification details=0
+MS:1003043|number of residues=9
+MS:1003048|number of enzymatic termini=1
+MS:1003043|number of residues=9
+<Peaks>
+128.984	0.5	?,
+130.941	0.2	?,
+143.044	0.7	?,
+171.0	0.9	?,
+187.001	0.2	?,
+216.026	22.6	?,
+244.001	20.8	b4^2/0.369,y4-NH3^2/0.843,y6-2H2O^3/-0.809
+251.687	3.1	y4^2/0.016,y6-NH3^3/0.546,y6-H20^3/0.874
+276.11	5.9	y2/-0.057,
+289.639	12.8	y7-NH3^3/0.155,y7-H20^3/0.483,b5-CO2^2/-0.527,b5-HCOOH^2/0.481
+303.733	34.2	b5-NH3^2/0.085,b5-H20^2/0.577,b8-CO2^3/0.881
+340.124	61.1	b3-NH3/-0.063,b3-H20/0.921
+357.168	97.3	b3/-0.045,
+368.764	27.3	b6^2/0.061,p-H20^3/-0.785
+399.32	29.7	?,
+442.4	1714.1	y7^2/0.165,b4-CO2/0.134
+476.873	7282.5	y8-CO2^2/0.091,
+477.488	211.9	y8-CO2^2/0.206,
+498.917	10000.0	y8^2/0.14,
+499.42	0.8	?,
+502.323	3411.1	y4/-0.012,
+503.365	22.3	y4/0.03,
+505.285	1744.5	?,
+526.315	2.9	?,
+564.175	18.6	?,
+606.196	32.9	b5-NH3/-0.092,b5-H20/0.892
+607.176	0.9	?,
+623.315	40.3	b5/0.0,y5-NH3/0.948
+
+<Spectrum>
+MS:1003061|spectrum name=n[230]K[357]LDEHLLTR/4
+MS:9000001|Index=2
+MS:1000744|selected ion m/z=396.4975
+ERROR=Unable to parse X.n[230]K[357]LDEHLLTR.X/4 (CID) in FullName at E2355
+MS:1003054|theoretical average m/z=396.7154
+MS:1003044|number of missed cleavages=1
+MS:1003070|number of replicate spectra used=4
+MS:1003069|number of replicate spectra available=4
+MS:1000744|selected ion m/z=396.495
+MS:1002357|PSM-level probability=1.0
+MS:1003065|spectrum aggregation type=MS:1003067|consensus spectrum
+MS:1000041|charge state=4
+[1]MS:1009900|other attribute name=FullName
+[1]MS:1009902|other attribute value=X.n[230]K[357]LDEHLLTR.X/4 (CID)
+[2]MS:1009900|other attribute name=BinaryFileOffset
+[2]MS:1009902|other attribute value=2802
+[3]MS:1009900|other attribute name=ClusterId
+[3]MS:1009902|other attribute value=954681ff-013f-405e-97e5-73d4dc4aedb2
+[4]MS:1009900|other attribute name=DeltaMass
+[4]MS:1009902|other attribute value=-0.0
+[5]MS:1009900|other attribute name=FracUnassigned
+[5]MS:1009902|other attribute value=0.00,0/5;0.10,7/20;0.06,6/30
+[6]MS:1009900|other attribute name=MaxRatio
+[6]MS:1009902|other attribute value=1.0
+[7]MS:1009900|other attribute name=PrecursorMzRange
+[7]MS:1009902|other attribute value=0.0116
+MS:1003062|spectrum index=2
+<Analyte=1>
+MS:1000224|molecular mass=1585.9899
+MS:1001471|peptide modification details=2(-1,n,TMT6plex)(0,K,TMT6plex)
+MS:1003043|number of residues=9
+MS:1003048|number of enzymatic termini=1
+MS:1003043|number of residues=9
+MS:1000888|unmodified peptide sequence=n[230]K[357]LDEHLLTR
+<Peaks>
+127.126	64.1	y4^4/0.787,
+129.176	169.2	IR/0.063,y2-H20^2/-0.406,y1-HCOOH/0.063
+130.174	106.0	y3^3/-0.248,y2-NH3^2/0.1,y1-CO2/-0.955
+158.106	127.9	y1-NH3/0.014,y1-H20/0.998
+175.115	385.5	y1/-0.004,b2^4/-0.769
+230.239	198.3	y2-HCOOH/0.078,y4-CO2^2/0.563,a4^4/0.337
+249.217	318.1	y8^4/-0.675,
+251.73	333.9	y4^2/0.059,y6-NH3^3/0.589,y6-H20^3/0.917
+267.235	93.9	b3-NH3^3/0.393,b3-H20^3/0.721,b5-NH3^4/0.326,b5-H20^4/0.572
+276.246	543.4	y2/0.079,b1-2NH3^2/-0.945
+352.088	1169.2	b8^4/-0.882,a5^3/0.201
+361.365	2558.8	b5^3/0.147,y6-HCOOH^2/-0.354
+375.946	3346.5	y6-H20^2/0.23,y6-NH3^2/-0.262
+384.965	5908.4	p-HCOOH^4/-0.031,y6^2/0.243,p-CO2^4/-0.535,b3-HCOOH^2/-0.305,b6-CO2^3/0.715
+389.382	2423.3	y3/0.131,a6^3/-0.199
+408.432	10000.0	b3^2/0.159,
+409.396	662.6	?,
+472.958	4298.8	b4^2/0.164,
+476.314	166.1	b818^3/0.02,y8-CO2^2/-0.468,y8-HCOOH^2/0.539
+477.117	120.9	?,
+502.353	1245.7	y4/0.018,
+503.35	402.8	y4/0.015,
+506.312	354.5	?,
+541.45	5037.2	b5^2/0.126,
+542.301	534.7	?,
+619.41	691.1	?,
+636.408	339.8	b7-2H2O^2/0.011,b7-H2O-NH3^2/-0.481
+637.414	361.7	b7-2NH3^2/0.033,
+638.386	106.8	?,
+639.396	126.6	y5/0.002,
+
+<Spectrum>
+MS:1003061|spectrum name=n[230]K[357]LDEHLLTR/4
+MS:9000001|Index=3
+MS:1000744|selected ion m/z=396.4975
+ERROR=Unable to parse X.n[230]K[357]LDEHLLTR.X/4 (CID) in FullName at E2355
+MS:1003054|theoretical average m/z=396.7154
+MS:1003044|number of missed cleavages=1
+MS:1009020|number of replicate spectra used=1
+MS:1009021|number of replicate spectra available=8
+MS:1000744|selected ion m/z=396.497
+MS:1002357|PSM-level probability=1.0
+MS:1003065|spectrum aggregation type=MS:1003067|consensus spectrum
+MS:1000041|charge state=4
+[1]MS:1009900|other attribute name=FullName
+[1]MS:1009902|other attribute value=X.n[230]K[357]LDEHLLTR.X/4 (CID)
+[2]MS:1009900|other attribute name=BinaryFileOffset
+[2]MS:1009902|other attribute value=4275
+[3]MS:1009900|other attribute name=ClusterId
+[3]MS:1009902|other attribute value=612adc07-986c-49f8-b433-a17af2889c99
+[4]MS:1009900|other attribute name=DeltaMass
+[4]MS:1009902|other attribute value=-0.0
+[5]MS:1009900|other attribute name=FracUnassigned
+[5]MS:1009902|other attribute value=0.00,0/5;0.04,2/20;0.02,10/37
+[6]MS:1009900|other attribute name=MaxRatio
+[6]MS:1009902|other attribute value=1.0
+[7]MS:1009900|other attribute name=PrecursorMzRange
+[7]MS:1009902|other attribute value=0.0059
+MS:1003062|spectrum index=3
+<Analyte=1>
+MS:1000224|molecular mass=1585.9899
+MS:1001471|peptide modification details=2(-1,n,TMT6plex)(0,K,TMT6plex)
+MS:1003043|number of residues=9
+MS:1003048|number of enzymatic termini=1
+MS:1003043|number of residues=9
+MS:1000888|unmodified peptide sequence=n[230]K[357]LDEHLLTR
+<Peaks>
+127.179	225.0	y4^4/0.84,
+128.168	403.5	IR/-0.945,y1-HCOOH/-0.945
+130.19	471.4	y3^3/-0.232,y2-NH3^2/0.116,y2-H20^2/0.608,y1-CO2/-0.939
+175.14	923.6	y1/0.021,b2^4/-0.744
+199.243	368.5	b3-H20^4/-0.895,y5-CO2^3/0.104,y5-HCOOH^3/0.775
+230.259	251.6	y2-HCOOH/0.098,y4-CO2^2/0.583,a4^4/0.357
+249.171	1447.0	y8^4/-0.721,
+251.499	315.7	y4^2/-0.172,y6-NH3^3/0.358,y6-H20^3/0.686
+267.193	901.4	b3-NH3^3/0.351,b3-H20^3/0.679,b5-NH3^4/0.284,b5-H20^4/0.53
+276.235	3664.0	y2/0.068,b1-2NH3^2/-0.956
+362.231	828.8	y6-CO2^2/-0.496,y6-HCOOH^2/0.512
+375.92	2364.5	y6-H20^2/0.204,y6-NH3^2/-0.288
+384.958	2068.7	p-HCOOH^4/-0.038,y6^2/0.236,p-CO2^4/-0.542,b3-HCOOH^2/-0.312,b6-CO2^3/0.708
+389.293	10000.0	y3/0.042,a6^3/-0.288
+390.335	1970.0	y3/0.084,b3-2NH3^2/-0.912,b3-H2O-NH3^2/-0.42
+408.345	5296.6	b3^2/0.072,
+409.094	364.9	b3^2/0.321,
+447.374	176.5	?,
+472.811	1029.5	b4^2/0.017,
+473.512	222.3	b4^2/0.218,
+502.315	5029.1	y4/-0.02,
+503.321	1190.1	y4/-0.014,
+504.303	152.1	y4/-0.032,
+541.319	1759.2	b5^2/-0.005,
+541.936	465.7	b5^2/0.112,
+619.471	90.7	?,
+658.541	168.8	?,
+659.465	102.7	?,
+660.478	59.8	?,
+661.372	99.4	?,
+738.221	11.0	?,
+787.701	4.4	a3/0.157,
+790.503	13.4	?,
+815.532	5.2	b3/-0.007,
+816.969	5.7	?,
+944.685	15.6	b4/0.103,
+945.335	9.3	?,
 

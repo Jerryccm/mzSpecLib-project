@@ -744,11 +744,12 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                         "ERROR", f"Attribute {attribute} must have a value")
                     unknown_terms.append(attribute)
 
-            #### Expand the Nrep attribute
+            ### Expand the Nrep attribute
             elif attribute == "Nrep" or attribute == "Nreps":
+                print(attributes[attribute])
                 if attributes[attribute] is not None:
                     match = re.match(
-                        r"(\d+)/(\d+)", attributes[attribute])
+                        r"(\d+)/?(\d+)", str(attributes[attribute]))
                     if match is not None:
                         spectrum.add_attribute(
                             "MS:1009020|number of replicate spectra used", try_cast(match.group(1)))
@@ -756,7 +757,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                             "MS:1009021|number of replicate spectra available", try_cast(match.group(2)))
                     else:
                         match = re.match(
-                            r"(\d+)", attributes[attribute])
+                            r"(\d+)", str(attributes[attribute]))
                         if match is not None:
                             spectrum.add_attribute(
                                 "MS:1003070|number of replicate spectra used", try_cast(match.group(1)))
