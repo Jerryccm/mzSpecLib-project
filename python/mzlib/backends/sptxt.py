@@ -7,6 +7,7 @@ from pathlib import Path
 
 from mzlib.index import MemoryIndex
 from mzlib import annotation
+from sqlalchemy.sql.schema import PrimaryKeyConstraint
 
 from .base import _PlainTextSpectralLibraryBackendBase
 from .utils import try_cast
@@ -17,10 +18,8 @@ logger.addHandler(logging.NullHandler())
 
 
 leader_terms = {
-    # "Name": "MS:1003061|spectrum name",
+    "Name": "MS:1003061|spectrum name",
 }
-
-# lalala testing
 
 analyte_terms = {
     "MW": "MS:1000224|molecular mass",
@@ -413,19 +412,24 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
             #### Else in the peaks section. Parse the peaks.
             else:
                 ### Split into the expected three values
+                
                 values = re.split(r'\s+', line)
+                interpretations_list = []
                 # print(len(values))
                 interpretations = ""
                 aggregation = ""
+                # print(len(values))
                 if len(values) == 1:
                     mz = values
                     intensity = "1"
                 if len(values) == 2:
                     mz, intensity = values
-                elif len(values) == 3:
-                    mz, intensity, interpretations = values
+                elif len(values) >= 3:
+                    mz, intensity, interpretations = values[0:3]
                     interpretations_list = interpretations.split(',')
-                # elif len(values) > 3:
+                # elif len(values) == 5:
+                #     mz, intensity, interpretations, conf1, conf2 = values
+                #     interpretations_list = interpretations.split(',')
                 #     # mz, intensity, interpretations = values[0:2]
                 #     # mz, intensity = values
                 #     # mz, intensity, interpretations = values[0:3]
@@ -687,7 +691,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
             elif attribute == "Mz_diff":
                 if attributes[attribute] is not None:
                     match = re.match(
-                        r"([\-\+e\d\.]+)\s*ppm", attributes[attribute], flags=re.IGNORECASE)
+                        r"([\-\+e\d\.]+)\s*ppm", str(attributes[attribute]), flags=re.IGNORECASE)
                     if match is not None:
                         group_identifier = spectrum.get_next_group_identifier()
                         spectrum.add_attribute(
@@ -696,7 +700,7 @@ class SPTXTSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
                             "UO:0000000|unit", "UO:0000169|parts per million", group_identifier)
                     else:
                         match = re.match(
-                            r"([\-\+e\d\.]+)\s*", attributes[attribute])
+                            r"([\-\+e\d\.]+)\s*", str(attributes[attribute]))
                         if match is not None:
                             group_identifier = spectrum.get_next_group_identifier()
                             spectrum.add_attribute(
