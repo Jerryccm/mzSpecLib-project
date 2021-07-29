@@ -325,6 +325,19 @@ class TextSpectralLibrary(_PlainTextSpectralLibraryBackendBase):
         spectrum = self._parse(buffer, spectrum_number)
         return spectrum
 
+attribute_dictionary ={
+"MS:1003061|spectrum name": "Name",
+"MS:1003053|theoretical monoisotopic m/z" : "MZ", 
+"MS:xxxxxx|protein accession" : "Protein",
+"MS:1001112|n-terminal flanking residue" : "PrecAA",
+"MS:1001113|c-terminal flanking residue" : "NextAA",
+"MS:1003043|number of residues" : "NAA",
+"MS:1003048|number of enzymatic termini" :"NTT",
+"MS:1003051|peptidoform ion" : "PepIon",
+"MS:1000041|charge state" : "Charge",
+"MS:1003059|number of peaks" : "NumPeaks",
+"MS:1000894|retention time" : "RT"
+}
 
 class TextSpectralLibraryWriter(SpectralLibraryWriterBase):
     file_format = "mzlb.txt"
@@ -358,7 +371,10 @@ class TextSpectralLibraryWriter(SpectralLibraryWriterBase):
         self.handle.write("<Spectrum>\n")
         for attribute in spectrum.attributes:
             if len(attribute) == 2:
-                self.handle.write(f"{attribute[0]}={attribute[1]}\n")
+                try:
+                    self.handle.write(f"{attribute_dictionary[attribute[0]]}={attribute[1]}\n")
+                except:
+                    self.handle.write(f"{attribute[0]}={attribute[1]}\n")
             elif len(attribute) == 3:
                 self.handle.write(f"[{attribute[2]}]{attribute[0]}={attribute[1]}\n")
             else:
